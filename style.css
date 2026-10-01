@@ -81,6 +81,16 @@ footer {
   font-size: 0.9rem;
 }
 
+/* App icons are square artwork; the corners are rounded here, with a
+   hairline so a light icon still has an edge on a light page. */
+.app-icon, .list-icon {
+  display: block;
+  border-radius: 22.37%;
+  box-shadow: 0 0 0 1px var(--rule), 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.app-icon { margin: 0 0 22px; }
+
 .apps { list-style: none; padding: 0; }
-.apps li { padding: 14px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.apps li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.list-icon { flex: none; box-shadow: 0 0 0 1px var(--rule); }
 .apps .name { font-weight: 600; }
