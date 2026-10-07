@@ -7,7 +7,6 @@
   --rule: #e5e5ea;
   --link: #0a66d6;
   --code: #f2f2f5;
-  --accent: #0a66d6;
   --pill: #e8f0fd;
   --pill-text: #0a58bd;
   --release: #e6f6ea;
@@ -25,7 +24,6 @@
     --rule: #2c2c2e;
     --link: #6aa8ff;
     --code: #2c2c2e;
-    --accent: #0a84ff;
     --pill: #0f2a4d;
     --pill-text: #8cbcff;
     --release: #0f3a1d;
@@ -74,6 +72,8 @@ p, ul { margin: 0 0 1em; }
 ul { padding-left: 1.25em; }
 li { margin: 0.35em 0; }
 
+.home h1 { font-weight: 600; }
+
 .lede {
   color: var(--secondary);
   font-size: 1.2rem;
@@ -118,14 +118,17 @@ footer {
   gap: 16px;
 }
 
+/* The card's corners are concentric with the icon's: icon radius plus
+   the padding around it. */
 .card {
+  --pad: 20px;
   margin: 0;
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  padding: 20px;
+  padding: var(--pad);
   background: var(--surface);
-  border-radius: 20px;
+  border-radius: calc(64px * 0.2237 + var(--pad));
   box-shadow: var(--shadow);
 }
 
@@ -135,21 +138,22 @@ footer {
 .links .plain { color: var(--secondary); font-size: 0.9rem; }
 .links .button + .plain { margin-left: 6px; }
 
-/* Get the app (filled), then What's New (tinted); the privacy policy
-   stays a plain link. */
+/* Get the app (filled), then What's New (tinted), in the text colour so
+   they're black in light mode and white in dark; the privacy policy stays
+   a plain link. */
 .button {
   display: inline-block;
   padding: 5px 12px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--link) 12%, transparent);
-  color: var(--link);
+  background: color-mix(in srgb, var(--text) 9%, transparent);
+  color: var(--text);
   font-size: 0.88rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .button:hover { text-decoration: none; filter: brightness(1.08); }
-.button.get { background: var(--accent); color: #fff; }
+.button.get { background: var(--text); color: var(--bg); }
 
 /* App pages: icon and name, then a tab for each of the app's pages. */
 .app-header {
