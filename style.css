@@ -176,8 +176,6 @@ footer {
 }
 
 .app-id .app-icon { width: 52px; height: 52px; }
-.app-id > div { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
-.app-id .button { letter-spacing: 0; }
 
 .back {
   display: inline-flex;
