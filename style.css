@@ -1,21 +1,34 @@
 :root {
   color-scheme: light dark;
-  --bg: #ffffff;
+  --bg: #f5f5f7;
+  --surface: #ffffff;
   --text: #1d1d1f;
   --secondary: #6e6e73;
   --rule: #e5e5ea;
   --link: #0a66d6;
   --code: #f2f2f5;
+  --pill: #e8f0fd;
+  --pill-text: #0a58bd;
+  --release: #e6f6ea;
+  --release-text: #1b7f3b;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
+/* Pure black behind pages in dark mode, with cards a step above it. */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
-    --text: #e8e8ed;
+    --surface: #1c1c1e;
+    --text: #f5f5f7;
     --secondary: #98989f;
     --rule: #2c2c2e;
     --link: #6aa8ff;
-    --code: #1c1c1e;
+    --code: #2c2c2e;
+    --pill: #0f2a4d;
+    --pill-text: #8cbcff;
+    --release: #0f3a1d;
+    --release-text: #7ed99a;
+    --shadow: none;
   }
 }
 
@@ -35,21 +48,23 @@ body {
 }
 
 main {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 56px 20px 80px;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
 }
 
 h1 {
-  font-size: 2rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin: 0 0 6px;
+  font: 700 2.4rem/1.1 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.3;
+  letter-spacing: -0.01em;
   margin: 2.2em 0 0.5em;
 }
 
@@ -57,11 +72,13 @@ p, ul { margin: 0 0 1em; }
 ul { padding-left: 1.25em; }
 li { margin: 0.35em 0; }
 
-.effective {
+.effective, .lede {
   color: var(--secondary);
-  font-size: 0.95rem;
-  margin-bottom: 2em;
+  font-size: 1rem;
+  margin-bottom: 2.2em;
 }
+
+.lede { font-size: 1.2rem; line-height: 1.45; max-width: 32em; }
 
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -74,23 +91,129 @@ code {
 }
 
 footer {
-  margin-top: 3em;
+  margin-top: 4em;
   padding-top: 1.2em;
   border-top: 1px solid var(--rule);
   color: var(--secondary);
   font-size: 0.9rem;
 }
 
-/* The app's icon above its page's title. Icons are square artwork; the
-   corners are rounded here, with a hairline so a light icon still has an
-   edge on a light page. */
+/* App icons are square artwork; the corners are rounded here, with a
+   hairline so a light icon still has an edge on a light page. */
 .app-icon {
   display: block;
+  flex: none;
   border-radius: 22.37%;
-  box-shadow: 0 0 0 1px var(--rule), 0 6px 18px rgba(0, 0, 0, 0.08);
-  margin: 0 0 22px;
+  box-shadow: 0 0 0 1px var(--rule), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.apps { list-style: none; padding: 0; }
-.apps li { padding: 14px 0; border-bottom: 1px solid var(--rule); margin: 0; }
-.apps .name { font-weight: 600; }
+/* Home page: one card per app. */
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 { margin: 2px 0 2px; font-size: 1.15rem; }
+.card p { color: var(--secondary); font-size: 0.95rem; line-height: 1.45; margin: 0 0 10px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.95rem; font-weight: 500; }
+
+/* App pages: icon and name, then a tab for each of the app's pages. */
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 40px;
+}
+
+.app-id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.app-id:hover { text-decoration: none; }
+.app-id .app-icon { width: 52px; height: 52px; }
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface);
+  border-radius: 999px;
+  box-shadow: var(--shadow), 0 0 0 1px var(--rule);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.tabs a {
+  padding: 5px 14px;
+  border-radius: 999px;
+  color: var(--secondary);
+}
+
+.tabs a:hover { color: var(--text); text-decoration: none; }
+.tabs a[aria-current="page"] { background: var(--text); color: var(--bg); }
+
+/* Changelog: one card per version. */
+.release {
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 24px 24px 12px;
+  margin: 0 0 20px;
+}
+
+.release header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin-bottom: 14px;
+}
+
+.release h2 { margin: 0; font-size: 1.4rem; }
+.release time { color: var(--secondary); font-size: 0.95rem; margin-left: auto; }
+
+.kind {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--pill);
+  color: var(--pill-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.kind.release-kind { background: var(--release); color: var(--release-text); }
+
+.release h3 {
+  margin: 1.2em 0 0.3em;
+  color: var(--secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.release ul { padding-left: 1.1em; }
+.release li { margin: 0.25em 0; }
+.release li::marker { color: var(--secondary); }
