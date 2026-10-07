@@ -7,6 +7,7 @@
   --rule: #e5e5ea;
   --link: #0a66d6;
   --code: #f2f2f5;
+  --accent: #0a66d6;
   --pill: #e8f0fd;
   --pill-text: #0a58bd;
   --release: #e6f6ea;
@@ -24,6 +25,7 @@
     --rule: #2c2c2e;
     --link: #6aa8ff;
     --code: #2c2c2e;
+    --accent: #0a84ff;
     --pill: #0f2a4d;
     --pill-text: #8cbcff;
     --release: #0f3a1d;
@@ -48,7 +50,7 @@ body {
 }
 
 main {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 56px 20px 80px;
   padding-left: max(20px, env(safe-area-inset-left));
@@ -129,7 +131,25 @@ footer {
 
 .card h2 { margin: 2px 0 2px; font-size: 1.15rem; }
 .card p { color: var(--secondary); font-size: 0.95rem; line-height: 1.45; margin: 0 0 10px; }
-.links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.95rem; font-weight: 500; }
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 4px; }
+.links .plain { color: var(--secondary); font-size: 0.9rem; }
+.links .button + .plain { margin-left: 6px; }
+
+/* Get the app (filled), then What's New (tinted); the privacy policy
+   stays a plain link. */
+.button {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--link) 12%, transparent);
+  color: var(--link);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.button:hover { text-decoration: none; filter: brightness(1.08); }
+.button.get { background: var(--accent); color: #fff; }
 
 /* App pages: icon and name, then a tab for each of the app's pages. */
 .app-header {
@@ -143,16 +163,25 @@ footer {
 
 .app-id {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
-  color: var(--text);
+  gap: 10px 14px;
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.app-id:hover { text-decoration: none; }
 .app-id .app-icon { width: 52px; height: 52px; }
+.app-id .button { letter-spacing: 0; }
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -24px 0 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
 
 .tabs {
   display: flex;
