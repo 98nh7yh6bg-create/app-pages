@@ -1,9 +1,9 @@
 :root {
   color-scheme: light dark;
   --bg: #f5f5f7;
-  /* Type from angelakismax.com: Instrument Sans for display, General Sans
-     for text, IBM Plex Mono for small captions. */
-  --display: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  /* Type from angelakismax.com: General Sans for titles and text, IBM Plex
+     Mono for small captions. */
+  --display: "General Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --sans: "General Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --surface: #ffffff;
