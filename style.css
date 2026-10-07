@@ -160,6 +160,7 @@ footer {
 
 .button:hover { text-decoration: none; filter: brightness(1.08); }
 .button.get { background: var(--text); color: var(--bg); }
+.button.soon { cursor: default; filter: none; }
 
 /* App pages: icon and name, then a tab for each of the app's pages. */
 .app-header {
