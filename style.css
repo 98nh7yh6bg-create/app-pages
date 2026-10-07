@@ -48,7 +48,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 400 17px/1.6 var(--sans);
+  font: 500 17px/1.6 var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -102,7 +102,7 @@ footer {
   padding-top: 1.2em;
   border-top: 1px solid var(--rule);
   color: var(--secondary);
-  font: 400 0.75rem/1.5 var(--mono);
+  font: 500 0.75rem/1.5 var(--mono);
   text-transform: uppercase;
 }
 
@@ -221,9 +221,9 @@ footer {
   border-bottom: 1px solid var(--rule);
 }
 
-.page-hero h1 { font-size: 3.4rem; margin-bottom: 14px; }
+.page-hero h1 { font-size: 2.6rem; margin-bottom: 12px; }
 .page-hero p { font-size: 1.1rem; margin: 0 0 1em; }
-.page-hero .latest { color: var(--secondary); font: 400 0.8rem/1.5 var(--mono); text-transform: uppercase; margin: 0; }
+.page-hero .latest { color: var(--secondary); font: 500 0.8rem/1.5 var(--mono); text-transform: uppercase; margin: 0; }
 .page-hero .latest strong { color: var(--text); font-weight: 500; }
 
 /* Privacy pages share the changelog's headings and bullets. */
@@ -246,7 +246,7 @@ main li::marker { content: "▪  "; color: var(--secondary); font-size: 0.7em; }
 .release time {
   display: block;
   color: var(--secondary);
-  font: 400 0.75rem/1.5 var(--mono);
+  font: 500 0.75rem/1.5 var(--mono);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -276,7 +276,7 @@ main li::marker { content: "▪  "; color: var(--secondary); font-size: 0.7em; }
 .release h3 {
   margin: 1.6em 0 0.4em;
   color: var(--secondary);
-  font: 400 0.75rem/1.5 var(--mono);
+  font: 500 0.75rem/1.5 var(--mono);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
