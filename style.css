@@ -239,9 +239,38 @@ footer {
 main li::marker { content: "▪  "; color: var(--secondary); font-size: 0.7em; }
 
 .release {
-  padding: 40px 0 16px;
+  padding: 32px 0;
   border-bottom: 1px solid var(--rule);
 }
+
+/* Each version is a <details>: the newest is open, the rest show only
+   their date, version and headline, with a chevron to open them. */
+.release summary {
+  position: relative;
+  padding-right: 40px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.release summary::-webkit-details-marker { display: none; }
+
+.release summary::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 0.55em;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.release[open] summary::after { transform: translateY(4px) rotate(-135deg); }
+.release summary:hover h2 { color: var(--secondary); }
+.release[open] summary { margin-bottom: 0.2em; }
+.release summary + p { margin-top: 0.8em; }
 
 .release time {
   display: block;
@@ -266,7 +295,7 @@ main li::marker { content: "▪  "; color: var(--secondary); font-size: 0.7em; }
 .tag { color: var(--secondary); }
 
 .release h2 {
-  margin: 0 0 0.6em;
+  margin: 0;
   font-size: 1.75rem;
   font-weight: 500;
   line-height: 1.2;
