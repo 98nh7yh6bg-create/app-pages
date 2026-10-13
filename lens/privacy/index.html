@@ -24,10 +24,10 @@
 </header>
 <div class="page-hero">
 <h1>Privacy Policy</h1>
-<p class="latest">Effective 1 October 2026</p>
+<p class="latest">Effective 13 October 2026</p>
 </div>
 
-<p>Lens is a web browser for iPhone and iPad. It’s built so that what you do in it stays yours: there’s no account, no analytics, no ads and no tracking. I (the developer) don’t run any server that receives your browsing, and I can’t see anything you do in Lens.</p>
+<p>Lens is a web browser for iPhone and iPad, with a menu bar companion for Mac. It’s built so that what you do in it stays yours: there’s no account, no analytics, no ads and no tracking. I (the developer) don’t run any server that receives your browsing, and I can’t see anything you do in Lens.</p>
 <p>This page explains exactly what Lens keeps, where it goes, and how to remove it.</p>
 
 <h2>What stays on your device</h2>
@@ -38,6 +38,8 @@
 <li><strong>Site icons</strong>, fetched from the sites you visit, so history and pins look familiar.</li>
 <li><strong>Downloads</strong> you haven’t saved yet. Unsaved downloads are deleted automatically after the period you choose in Settings.</li>
 <li><strong>Your settings and per-site choices</strong>, such as zoom, Reader, fullscreen and things you’ve hidden on a page.</li>
+<li><strong>A count of pages loaded and days used</strong> (not which pages), only to decide when to ask for an App Store rating, and when to mention tips or Lens for Mac, each once. Lens asks for ratings with Apple’s own prompt, at most every few months, and never over a private tab.</li>
+<li><strong>Whether you’ve used AirDrop from Lens</strong> (not what or to whom), as a hint you may have a Mac, so Lens for Mac can be mentioned sooner.</li>
 </ul>
 <p>You can clear history, website data and downloads at any time in Settings, or forget everything about one site with Forget This Website in the page menu.</p>
 
@@ -45,12 +47,23 @@
 <p>Private tabs are never written to disk. They don’t add to history, aren’t synced, and don’t save site icons. Their cookies and website data live in memory and are erased, along with their downloads, when you close your last private tab. You can lock private tabs with Face ID.</p>
 
 <h2>iCloud sync</h2>
-<p>If you’re signed in to iCloud, Lens can keep your pins, settings, history and open tabs in step across your devices. You can turn sync off, or turn off only history sync, in Settings.</p>
+<p>If you’re signed in to iCloud, Lens can keep your pins, settings, history and open tabs in step across your devices, and send links to your Mac. You can turn sync off, or turn off only history sync, in Settings.</p>
 <ul>
 <li>Sync uses <strong>your own private iCloud database</strong>. It is not a Lens server, and I can’t access it.</li>
-<li>What’s stored there, including the addresses and titles of pages, your pins, your settings and when you visited, is <strong>end-to-end encrypted</strong> with keys only your devices have.</li>
+<li>What’s stored there, including the addresses and titles of pages, your pins, your settings, when you visited and each device’s model name (like “iPhone 17 Pro”), is <strong>end-to-end encrypted</strong> with keys only your devices have.</li>
+<li><strong>Send to Mac</strong> saves the link, its title, when you sent it and your device’s model name there, encrypted the same way. Your Mac deletes it once you open it, or after a week if you don’t.</li>
 <li>Apple handles iCloud under <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a>. Apple can see that encrypted records exist, how big they are and when they changed, but not what’s in them.</li>
 <li>Private tabs are never synced.</li>
+</ul>
+
+<h2>Lens for Mac</h2>
+<p>Lens for Mac lives in your menu bar and shows your pins, links you’ve sent to your Mac and the tabs open on your iPhone and iPad. It reads them from your own iCloud, as above, and opens pages in the browser you choose.</p>
+<ul>
+<li>It reads only your pins, your devices’ open tabs and links you’ve sent. It doesn’t read your history or settings.</li>
+<li>It writes only two things: it deletes sent links once you open them (or after a week), and it saves one small encrypted record saying a Mac uses Lens, so your iPhone knows to offer Send to Mac.</li>
+<li>It keeps a copy of the last menu it showed on your Mac, so the menu appears at once.</li>
+<li><strong>Site icons</strong>: to show a site’s icon, Lens for Mac asks that site directly for its home page and icon, without cookies, only for sites shown in the menu. Icons are kept on your Mac for two weeks. Each site sees a request from your Mac, as it would when you visit it. No third-party icon service is used.</li>
+<li><strong>Open at Login</strong> is up to you, and you can change it in the menu or in System Settings.</li>
 </ul>
 
 <h2>Search and suggestions</h2>
@@ -66,6 +79,9 @@
 <li><strong>Reader</strong> prepares articles on your device.</li>
 <li><strong>Handoff</strong> offers the page you’re on to your own nearby Apple devices, through Apple. Private tabs are never offered.</li>
 </ul>
+
+<h2>Tips</h2>
+<p>You can leave a tip in Settings › Support Lens. Tips are in-app purchases handled entirely by Apple under <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a>: I never see your name, Apple Account or payment details, only Apple’s sales reports, which don’t identify you. Lens remembers on your device that you’ve tipped, so the extra app icons stay unlocked, and can restore that from your App Store purchase history.</p>
 
 <h2>Permissions</h2>
 <p>Lens asks for access only when you use something that needs it:</p>
