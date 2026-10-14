@@ -314,4 +314,11 @@ main li::marker { content: "▪  "; color: var(--secondary); font-size: 0.7em; }
 .release ul { padding-left: 1.1em; }
 .release li { margin: 0.5em 0; }
 .release + footer { border-top: 0; }
+
+/* Contact block under the last release; the App Store's Support URL
+   links straight to it (#support). */
+.support { margin-top: 3em; }
+.support h2 { margin-bottom: 0.3em; }
+.support p { color: var(--secondary); }
+.support + footer { margin-top: 3em; }
 .page-hero ~ p:first-of-type { margin-top: 1.6em; }
